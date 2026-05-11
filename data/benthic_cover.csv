@@ -1,0 +1,251 @@
+site,year,transect,substrate,n_points
+cbc30s,2019,1,hard coral,6
+cbc30s,2019,1,soft coral,9
+cbc30s,2019,1,macroalgae,0
+cbc30s,2019,1,sponge,4
+cbc30s,2019,1,other,21
+cbc30s,2019,2,hard coral,3
+cbc30s,2019,2,soft coral,6
+cbc30s,2019,2,macroalgae,3
+cbc30s,2019,2,sponge,0
+cbc30s,2019,2,other,28
+cbc30c,2019,1,hard coral,8
+cbc30c,2019,1,soft coral,5
+cbc30c,2019,1,macroalgae,5
+cbc30c,2019,1,sponge,0
+cbc30c,2019,1,other,22
+cbc30c,2019,2,hard coral,10
+cbc30c,2019,2,soft coral,6
+cbc30c,2019,2,macroalgae,5
+cbc30c,2019,2,sponge,0
+cbc30c,2019,2,other,19
+cbc30n,2019,1,hard coral,6
+cbc30n,2019,1,soft coral,7
+cbc30n,2019,1,macroalgae,4
+cbc30n,2019,1,sponge,0
+cbc30n,2019,1,other,23
+cbc30n,2019,2,hard coral,9
+cbc30n,2019,2,soft coral,4
+cbc30n,2019,2,macroalgae,5
+cbc30n,2019,2,sponge,0
+cbc30n,2019,2,other,22
+sr30n,2019,1,hard coral,11
+sr30n,2019,1,soft coral,7
+sr30n,2019,1,macroalgae,2
+sr30n,2019,1,sponge,1
+sr30n,2019,1,other,19
+sr30n,2019,2,hard coral,0
+sr30n,2019,2,soft coral,4
+sr30n,2019,2,macroalgae,11
+sr30n,2019,2,sponge,1
+sr30n,2019,2,other,24
+sr30s,2019,1,hard coral,4
+sr30s,2019,1,soft coral,6
+sr30s,2019,1,macroalgae,13
+sr30s,2019,1,sponge,0
+sr30s,2019,1,other,17
+sr30s,2019,2,hard coral,4
+sr30s,2019,2,soft coral,10
+sr30s,2019,2,macroalgae,5
+sr30s,2019,2,sponge,0
+sr30s,2019,2,other,21
+sr30c,2019,1,hard coral,3
+sr30c,2019,1,soft coral,7
+sr30c,2019,1,macroalgae,17
+sr30c,2019,1,sponge,0
+sr30c,2019,1,other,13
+sr30c,2019,2,hard coral,8
+sr30c,2019,2,soft coral,8
+sr30c,2019,2,macroalgae,7
+sr30c,2019,2,sponge,1
+sr30c,2019,2,other,16
+lagoon,2019,1,hard coral,9
+lagoon,2019,1,soft coral,2
+lagoon,2019,1,macroalgae,0
+lagoon,2019,1,sponge,2
+lagoon,2019,1,other,27
+lagoon,2019,2,hard coral,15
+lagoon,2019,2,soft coral,3
+lagoon,2019,2,macroalgae,5
+lagoon,2019,2,sponge,4
+lagoon,2019,2,other,13
+southwater,2019,1,hard coral,4
+southwater,2019,1,soft coral,4
+southwater,2019,1,macroalgae,6
+southwater,2019,1,sponge,0
+southwater,2019,1,other,26
+southwater,2019,2,hard coral,0
+southwater,2019,2,soft coral,8
+southwater,2019,2,macroalgae,10
+southwater,2019,2,sponge,0
+southwater,2019,2,other,22
+sr_disease,2019,1,hard coral,5
+sr_disease,2019,1,soft coral,6
+sr_disease,2019,1,macroalgae,11
+sr_disease,2019,1,sponge,0
+sr_disease,2019,1,other,18
+sr_disease,2019,2,hard coral,2
+sr_disease,2019,2,soft coral,6
+sr_disease,2019,2,macroalgae,19
+sr_disease,2019,2,sponge,0
+sr_disease,2019,2,other,13
+southwater,2022,1,hard coral,3
+southwater,2022,1,soft coral,9
+southwater,2022,1,macroalgae,16
+southwater,2022,1,sponge,1
+southwater,2022,1,other,11
+southwater,2022,2,hard coral,2
+southwater,2022,2,soft coral,8
+southwater,2022,2,macroalgae,9
+southwater,2022,2,sponge,0
+southwater,2022,2,other,21
+sr_disease,2022,1,hard coral,10
+sr_disease,2022,1,soft coral,3
+sr_disease,2022,1,macroalgae,16
+sr_disease,2022,1,sponge,0
+sr_disease,2022,1,other,11
+sr_disease,2022,2,hard coral,5
+sr_disease,2022,2,soft coral,3
+sr_disease,2022,2,macroalgae,18
+sr_disease,2022,2,sponge,1
+sr_disease,2022,2,other,13
+sr30s,2022,1,hard coral,3
+sr30s,2022,1,soft coral,0
+sr30s,2022,1,macroalgae,18
+sr30s,2022,1,sponge,1
+sr30s,2022,1,other,18
+sr30s,2022,2,hard coral,8
+sr30s,2022,2,soft coral,4
+sr30s,2022,2,macroalgae,15
+sr30s,2022,2,sponge,0
+sr30s,2022,2,other,13
+sr30c,2022,1,hard coral,3
+sr30c,2022,1,soft coral,2
+sr30c,2022,1,macroalgae,22
+sr30c,2022,1,sponge,1
+sr30c,2022,1,other,12
+sr30c,2022,2,hard coral,5
+sr30c,2022,2,soft coral,4
+sr30c,2022,2,macroalgae,19
+sr30c,2022,2,sponge,3
+sr30c,2022,2,other,9
+sr30n,2022,1,hard coral,3
+sr30n,2022,1,soft coral,4
+sr30n,2022,1,macroalgae,17
+sr30n,2022,1,sponge,0
+sr30n,2022,1,other,16
+sr30n,2022,2,hard coral,7
+sr30n,2022,2,soft coral,0
+sr30n,2022,2,macroalgae,21
+sr30n,2022,2,sponge,0
+sr30n,2022,2,other,12
+lagoon,2022,1,hard coral,8
+lagoon,2022,1,soft coral,1
+lagoon,2022,1,macroalgae,4
+lagoon,2022,1,sponge,8
+lagoon,2022,1,other,19
+lagoon,2022,2,hard coral,16
+lagoon,2022,2,soft coral,2
+lagoon,2022,2,macroalgae,1
+lagoon,2022,2,sponge,5
+lagoon,2022,2,other,16
+cbc30s,2022,1,hard coral,2
+cbc30s,2022,1,soft coral,14
+cbc30s,2022,1,macroalgae,13
+cbc30s,2022,1,sponge,2
+cbc30s,2022,1,other,9
+cbc30s,2022,2,hard coral,3
+cbc30s,2022,2,soft coral,4
+cbc30s,2022,2,macroalgae,6
+cbc30s,2022,2,sponge,2
+cbc30s,2022,2,other,25
+sr30s,2024,1,hard coral,10
+sr30s,2024,1,soft coral,0
+sr30s,2024,1,macroalgae,9
+sr30s,2024,1,sponge,0
+sr30s,2024,1,other,21
+sr30s,2024,2,hard coral,3
+sr30s,2024,2,soft coral,6
+sr30s,2024,2,macroalgae,5
+sr30s,2024,2,sponge,1
+sr30s,2024,2,other,25
+sr30c,2024,1,hard coral,5
+sr30c,2024,1,soft coral,0
+sr30c,2024,1,macroalgae,5
+sr30c,2024,1,sponge,0
+sr30c,2024,1,other,30
+sr30c,2024,2,hard coral,2
+sr30c,2024,2,soft coral,10
+sr30c,2024,2,macroalgae,9
+sr30c,2024,2,sponge,3
+sr30c,2024,2,other,16
+sr30n,2024,1,hard coral,7
+sr30n,2024,1,soft coral,0
+sr30n,2024,1,macroalgae,12
+sr30n,2024,1,sponge,2
+sr30n,2024,1,other,19
+sr30n,2024,2,hard coral,3
+sr30n,2024,2,soft coral,6
+sr30n,2024,2,macroalgae,14
+sr30n,2024,2,sponge,4
+sr30n,2024,2,other,13
+sr_disease,2024,1,hard coral,3
+sr_disease,2024,1,soft coral,1
+sr_disease,2024,1,macroalgae,7
+sr_disease,2024,1,sponge,1
+sr_disease,2024,1,other,28
+sr_disease,2024,2,hard coral,5
+sr_disease,2024,2,soft coral,5
+sr_disease,2024,2,macroalgae,7
+sr_disease,2024,2,sponge,1
+sr_disease,2024,2,other,22
+cbc30n,2024,1,hard coral,4
+cbc30n,2024,1,soft coral,4
+cbc30n,2024,1,macroalgae,5
+cbc30n,2024,1,sponge,0
+cbc30n,2024,1,other,27
+cbc30n,2024,2,hard coral,8
+cbc30n,2024,2,soft coral,6
+cbc30n,2024,2,macroalgae,3
+cbc30n,2024,2,sponge,3
+cbc30n,2024,2,other,20
+cbc30c,2024,1,hard coral,2
+cbc30c,2024,1,soft coral,3
+cbc30c,2024,1,macroalgae,11
+cbc30c,2024,1,sponge,0
+cbc30c,2024,1,other,24
+cbc30c,2024,2,hard coral,4
+cbc30c,2024,2,soft coral,4
+cbc30c,2024,2,macroalgae,3
+cbc30c,2024,2,sponge,2
+cbc30c,2024,2,other,27
+cbc30s,2024,1,hard coral,8
+cbc30s,2024,1,soft coral,1
+cbc30s,2024,1,macroalgae,12
+cbc30s,2024,1,sponge,3
+cbc30s,2024,1,other,16
+cbc30s,2024,2,hard coral,6
+cbc30s,2024,2,soft coral,10
+cbc30s,2024,2,macroalgae,3
+cbc30s,2024,2,sponge,4
+cbc30s,2024,2,other,17
+southwater,2024,1,hard coral,3
+southwater,2024,1,soft coral,2
+southwater,2024,1,macroalgae,4
+southwater,2024,1,sponge,2
+southwater,2024,1,other,29
+southwater,2024,2,hard coral,9
+southwater,2024,2,soft coral,6
+southwater,2024,2,macroalgae,5
+southwater,2024,2,sponge,1
+southwater,2024,2,other,19
+lagoon,2024,1,hard coral,0
+lagoon,2024,1,soft coral,7
+lagoon,2024,1,macroalgae,1
+lagoon,2024,1,sponge,7
+lagoon,2024,1,other,25
+lagoon,2024,2,hard coral,1
+lagoon,2024,2,soft coral,0
+lagoon,2024,2,macroalgae,6
+lagoon,2024,2,sponge,7
+lagoon,2024,2,other,26
