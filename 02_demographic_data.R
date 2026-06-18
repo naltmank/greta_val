@@ -6,6 +6,7 @@ librarian::shelf(here, stringr, tidyverse, ggplot2, ggpubr, vegan, glmmTMB,
 
 #### READ AND FORMAT DATA ####
 demo_raw <- read.csv(here("data", "coral_demographics.csv"), stringsAsFactors = T)
+naming_key <- read.csv(here("data", "naming_key.csv"), stringsAsFactors = T)
 
 demo <- demo_raw %>%
   mutate(
@@ -16,12 +17,17 @@ demo <- demo_raw %>%
     transect_id = paste0(site, "-", transect)) %>%
   ungroup()
 
+demo_newname <- demo %>%
+  left_join(naming_key, by = "species") %>%
+  select(-species) %>%
+  rename(species = corrected_name)
+
 # for total density
-total_density <- demo %>%
+total_density <- demo_newname %>%
   group_by(site, year, transect, transect_id) %>%
   summarise(total_count = sum(count), .groups = "drop")
 
-species_obs <- demo %>%
+species_obs <- demo_newname %>%
   group_by(species) %>%
   summarise(nonzero = sum(count > 0),
             total = sum(count))
@@ -74,7 +80,7 @@ total_emm <- as.data.frame( emmeans(total_density_mod, ~ year, type = "response"
 interaction_mod <- glmmTMB(count ~ year * species + (1|site) + (1 | transect_id),
                              ziformula = ~ 1, 
                              family = nbinom2(),
-                             data = demo)
+                             data = demo_newname)
 plot(simulateResiduals(interaction_mod)) # dispersion test sig but also too much power - looks fine
 summary(interaction_mod)
 Anova(interaction_mod)
@@ -89,7 +95,7 @@ interaction_emm <- as.data.frame( emmeans(interaction_mod, ~ year | species, typ
 
 ##### PLOT #####
 # subset disease susceptibility info
-susceptibility <- demo %>%
+susceptibility <- demo_newname %>%
   select(species, SCTLD_suscep) %>%
   group_by(species, SCTLD_suscep) %>%
   summarise(species = unique(species),
