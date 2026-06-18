@@ -9,14 +9,17 @@ se<-function(x)sqrt(var(x)/length(x))
 
 #### READ AND PREP DATA ####
 demo <- read.csv(here::here("data", "coral_demographics.csv"), stringsAsFactors = T)
-
+naming_key <- read.csv(here("data", "naming_key.csv"), stringsAsFactors = T)
 
 demo <- demo %>%
   unite("event", c("site", "year", "transect"), sep = "_", remove = FALSE) 
 
+demo_newname <- demo %>%
+  left_join(naming_key, by = "species") %>%
+  select(-species) %>%
+  rename(species = corrected_name)
 
-
-cast <- demo %>% dplyr::select(-SCTLD_suscep) %>%
+cast <- demo_newname %>% dplyr::select(-SCTLD_suscep) %>%
   pivot_wider(id_cols = c(site, year, transect, event), names_from = species, 
               values_from = count)
 
@@ -63,14 +66,14 @@ data.scores1$event = cast$event
 species.scores1 <- as.data.frame(scores(NMDS1, "species")) 
 species.scores1$species <- rownames(species.scores1)  # create a column of species, from the rownames of species.scores
 
-uno <- data.scores1[data.scores1$year == "2019", ][chull(data.scores1[data.scores1$year == 
+yr1 <- data.scores1[data.scores1$year == "2019", ][chull(data.scores1[data.scores1$year == 
                                                                                "2019", c("NMDS1", "NMDS2")]), ]
-dos <- data.scores1[data.scores1$year == "2022", ][chull(data.scores1[data.scores1$year == 
+yr2 <- data.scores1[data.scores1$year == "2022", ][chull(data.scores1[data.scores1$year == 
                                                                            "2022", c("NMDS1", "NMDS2")]), ]
-tres <- data.scores1[data.scores1$year == "2024", ][chull(data.scores1[data.scores1$year == 
+yr3 <- data.scores1[data.scores1$year == "2024", ][chull(data.scores1[data.scores1$year == 
                                                                                  "2024", c("NMDS1", "NMDS2")]), ]
 
-hull.data1 <- rbind(uno, dos, tres) #%>% 
+hull.data1 <- rbind(yr1, yr2, yr3) #%>% 
 #   mutate(survey = fct_relevel(survey,
 #                               "January20", "May22", "December22")) 
 
@@ -121,6 +124,8 @@ braytable <- braydf %>%
 
 braytable
 
+write.csv(braydf, "output/PERMANOVAresults.csv")
+
 # run simper
 simp <- simper(mat, 
                group = cast$year,
@@ -129,20 +134,21 @@ simp <- simper(mat,
 # summary gives you contributing species per pairwise comparison
 simp_df <- as.data.frame(summary(simp)[["2019_2022"]])
 simp_df1 <- simp_df %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
-  subset(cumsum < 0.71) %>%
+  #subset(cumsum < 0.71) %>%
   arrange(cumsum)
 
 
 simptable1 <- simp_df1 %>%
-  kbl(caption = "Table 3: SIMPER contributions to Bray-Curtis dissimilarity between 2019 and 2022
-      (up to 70% cumulative sum of contributions)") %>%
+  kbl(caption = "Table 3: SIMPER contributions to Bray-Curtis dissimilarity between 2019 and 2022") %>%
   kable_styling()
 
 simptable1
 
+write.csv(simp_df1, "output/SIMPER_2019to2022.csv")
+
 simp_df2 <- as.data.frame(summary(simp)[["2022_2024"]])
 simp_df2 <- simp_df2 %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
-  subset(cumsum < 0.71) %>%
+  #subset(cumsum < 0.71) %>%
   arrange(cumsum)
 
 
@@ -153,9 +159,11 @@ simptable2 <- simp_df2 %>%
 
 simptable2
 
+write.csv(simp_df2, "output/SIMPER_2022to2024.csv")
+
 simp_df3 <- as.data.frame(summary(simp)[["2019_2024"]])
 simp_df3<- simp_df3 %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
-  subset(cumsum < 0.71) %>%
+  #subset(cumsum < 0.71) %>%
   arrange(cumsum)
 
 
@@ -166,6 +174,7 @@ simptable3 <- simp_df3 %>%
 
 simptable3
 
+write.csv(simp_df3, "output/SIMPER_2019to2024.csv")
 
 # Add vertical space between tables using LaTeX \bigskip or a fixed space
 spacer <- "<br><br><br>" # use more \\bigskip for even more space
@@ -203,7 +212,7 @@ species.scores1$species <- rownames(species.scores1)
 
 species.scores1 <- species.scores1 %>% inner_join(simp_df4, by = "species") 
 
-sus <- demo %>% ungroup() %>% dplyr::select(species, SCTLD_suscep) %>% distinct()
+sus <- demo_newname %>% ungroup() %>% dplyr::select(species, SCTLD_suscep) %>% distinct()
 
 species.scores1 <- species.scores1 %>% inner_join(sus, by = "species")
 
@@ -245,6 +254,9 @@ site <- ggplot() +
         panel.grid.major = element_blank(),  #remove major-grid labels
         panel.grid.minor = element_blank(),  #remove minor-grid labels
         plot.background = element_blank(),
+        legend.position = "bottom",
+        legend.box = "vertical",
+        legend.box.just = "left",
         plot.title = element_text(hjust = 0.5))
 
 spec <- ggplot() + 
@@ -254,11 +266,9 @@ spec <- ggplot() +
              aes(x = NMDS1, y = NMDS2),
              size = 2, alpha = 0) +
   
-  # Species vectors
-  geom_segment(data = species.scores1,
-               aes(x = 0, y = 0, xend = NMDS1, yend = NMDS2, color = SCTLD_suscep),
-               arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
-                linewidth = 0.4, alpha = 0.7) +
+  # Species points
+  geom_point(data = species.scores1,
+               aes(x = NMDS1, y = NMDS2, color = SCTLD_suscep), alpha = 0.7) +
   geom_text_repel(data = species.scores1,
                   aes(x = NMDS1, y = NMDS2, label = species, color = SCTLD_suscep),
                   size = 3, min.segment.length = 0.5, max.overlaps = 18, show.legend = FALSE) + 
@@ -280,23 +290,23 @@ spec <- ggplot() +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         plot.background = element_blank(),
+        legend.position = "bottom",
         plot.title = element_text(hjust = 0.5))
 
 
 
-NMDS_combo <- site + spec + 
-  plot_layout(guides = "collect") & 
-  theme(legend.position = "bottom",
-        legend.box = "vertical",        # stack legend groups vertically
-        legend.box.just = "left") &     # align them to the left
-  guides(
-    shape = guide_legend("Site", nrow = 2, order = 3),
-    fill  = guide_legend("Year", nrow = 1, order = 1),
-    color = guide_legend("SCTLD\nSusceptibility", nrow = 1, order = 2)
-  )
+NMDS_combo <- site + spec #+ 
+  # theme(legend.position = "bottom",
+  #       legend.box = "vertical",        # stack legend groups vertically
+  #       legend.box.just = "left") &     # align them to the left
+  # guides(
+  #   shape = guide_legend("Site", nrow = 2, order = 3),
+  #   fill  = guide_legend("Year", nrow = 1, order = 1),
+  #   color = guide_legend("SCTLD\nSusceptibility", nrow = 1, order = 2)
+  #)
 
 
-png("output/NMDS_bray2.png",width = 10, height = 7, units = "in", res = 400)
+png("output/NMDS_bray2.png",width = 11, height = 8, units = "in", res = 400)
 NMDS_combo
 dev.off()
 
