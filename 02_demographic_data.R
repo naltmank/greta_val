@@ -120,7 +120,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
     geom_errorbar(data = l_suscep_plot_df, aes(xmin = response - asymp.LCL, xmax = response + asymp.UCL,
                                            y = species,
                                            colour = year),
-                  position = position_dodge(0.8), width = 0.1) +
+                  position = position_dodge(0.8), width = 0.5, linewidth = 1.2) +
     labs(x = "Estimated marginal mean", y = "", title = "a. Low susceptibility") +
     scale_colour_manual(name = "Year",
                         limits = c("2019", "2022", "2024"),
@@ -139,7 +139,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
           plot.title = element_text(color = "black", size = 25, hjust = 0, vjust = 0, face = "plain"),
           axis.text.x = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
           axis.title.x = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain"),
-          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
+          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "italic"),
           axis.title.y = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain", margin = margin(r = 15))
     )
 )
@@ -151,7 +151,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
     geom_errorbar(data = m_suscep_plot_df, aes(xmin = response - asymp.LCL, xmax = response + asymp.UCL,
                                                y = species,
                                                colour = year),
-                  position = position_dodge(0.8), width = 0.1) +
+                  position = position_dodge(0.8), width = 0.5, linewidth = 1.2) +
     labs(x = "Estimated marginal mean", y = "", title = "b. Medium susceptibility") +
     scale_colour_manual(name = "Year",
                         limits = c("2019", "2022", "2024"),
@@ -169,7 +169,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
           plot.title = element_text(color = "black", size = 25, hjust = 0, vjust = 0, face = "plain"),
           axis.text.x = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
           axis.title.x = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain"),
-          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
+          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "italic"),
           axis.title.y = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain", margin = margin(r = 15))
     )
 )
@@ -182,7 +182,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
     geom_errorbar(data = h_suscep_plot_df, aes(xmin = response - asymp.LCL, xmax = response + asymp.UCL,
                                                y = species,
                                                colour = year),
-                  position = position_dodge(0.8), width = 0.1) +
+                  position = position_dodge(0.8), width = 0.5, linewidth = 1.2) +
     labs(x = "Estimated marginal mean", y = "", title = "c. High susceptibility") +
     scale_colour_manual(name = "Year",
                         limits = c("2019", "2022", "2024"),
@@ -200,7 +200,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
           plot.title = element_text(color = "black", size = 25, hjust = 0, vjust = 0, face = "plain"),
           axis.text.x = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
           axis.title.x = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain"),
-          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
+          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "italic"),
           axis.title.y = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain", margin = margin(r = 15))
     )
 )
@@ -213,7 +213,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
     geom_errorbar(data = v_suscep_plot_df, aes(xmin = response - asymp.LCL, xmax = response + asymp.UCL,
                                                y = species,
                                                colour = year),
-                  position = position_dodge(0.8), width = 0.1) +
+                  position = position_dodge(0.8), width = 0.5, linewidth = 1.2) +
     labs(x = "Estimated marginal mean", y = "", title = "d. Very high susceptibility") +
     scale_colour_manual(name = "Year",
                         limits = c("2019", "2022", "2024"),
@@ -231,7 +231,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
           plot.title = element_text(color = "black", size = 25, hjust = 0, vjust = 0, face = "plain"),
           axis.text.x = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
           axis.title.x = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain"),
-          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "plain"),
+          axis.text.y = element_text(color = "black", size = 24, hjust = .5, vjust = .5, face = "italic"),
           axis.title.y = element_text(color = "black", size = 25, hjust = .5, vjust = 0, face = "plain", margin = margin(r = 15))
     )
 )
