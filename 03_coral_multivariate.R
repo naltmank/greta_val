@@ -135,7 +135,10 @@ simp <- simper(mat,
 simp_df <- as.data.frame(summary(simp)[["2019_2022"]])
 simp_df1 <- simp_df %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
   #subset(cumsum < 0.71) %>%
-  arrange(cumsum)
+  arrange(cumsum) %>%
+  mutate(sum_avg = sum(average)) %>%
+  mutate(percent = (average/sum_avg)*100) %>%
+  select(-sum_avg)
 
 
 simptable1 <- simp_df1 %>%
@@ -149,7 +152,10 @@ write.csv(simp_df1, "output/SIMPER_2019to2022.csv")
 simp_df2 <- as.data.frame(summary(simp)[["2022_2024"]])
 simp_df2 <- simp_df2 %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
   #subset(cumsum < 0.71) %>%
-  arrange(cumsum)
+  arrange(cumsum) %>%
+  mutate(sum_avg = sum(average)) %>%
+  mutate(percent = (average/sum_avg)*100) %>%
+  select(-sum_avg)
 
 
 simptable2 <- simp_df2 %>%
@@ -164,7 +170,10 @@ write.csv(simp_df2, "output/SIMPER_2022to2024.csv")
 simp_df3 <- as.data.frame(summary(simp)[["2019_2024"]])
 simp_df3<- simp_df3 %>% dplyr::select(p, cumsum, average, sd, ratio, ava, avb) %>%
   #subset(cumsum < 0.71) %>%
-  arrange(cumsum)
+  arrange(cumsum) %>%
+  mutate(sum_avg = sum(average)) %>%
+  mutate(percent = (average/sum_avg)*100) %>%
+  select(-sum_avg)
 
 
 simptable3 <- simp_df3 %>%
@@ -271,7 +280,8 @@ spec <- ggplot() +
                aes(x = NMDS1, y = NMDS2, color = SCTLD_suscep), alpha = 0.7) +
   geom_text_repel(data = species.scores1,
                   aes(x = NMDS1, y = NMDS2, label = species, color = SCTLD_suscep),
-                  size = 3, min.segment.length = 0.5, max.overlaps = 18, show.legend = FALSE) + 
+                  size = 4, min.segment.length = 0.5, max.overlaps = 18, show.legend = FALSE,
+                  fontface = "italic") + 
     scale_color_manual("SCTLD\nSusceptibility",
                        values = c("very high" = "red4",
                                   "high" = "darkorange3",
