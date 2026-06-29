@@ -122,5 +122,5 @@ combined_emm <- rbind(coral_emm, soft_coral_emm, macroalgae_emm, sponge_emm)
     )
 )
 
-# ggsave(filename = here::here("output", "benthic_cover_effects.png"), univariate_plot, width = 12, height = 8,
+# ggsave(filename = here::here("output", "benthic_cover_effects.jpg"), univariate_plot, width = 12, height = 8,
 #        dpi = "retina")

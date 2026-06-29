@@ -1,7 +1,7 @@
 rm(list = ls())
 # install.packages("librarian")
 librarian::shelf(here, ggplot2, ggpubr, glmmTMB, DHARMa, car,
-                 mgcv, MuMIn, mgcViz, sf, spdep)
+                 mgcv, MuMIn, mgcViz, sf, spdep, emmeans)
 
 #### READ AND FORMAT DATA ####
 disease <- read.csv(here::here("data", "disease_prevalence.csv"))
@@ -174,5 +174,5 @@ lat_df_final <- lat_df %>%
    )
  )
 
-# ggsave(filename = here::here("output", "disease_plot_gam.png"), gam_plot, width = 10, height = 8,
+# ggsave(filename = here::here("output", "disease_plot_gam.jpg"), gam_plot, width = 10, height = 8,
 #        dpi = "retina")

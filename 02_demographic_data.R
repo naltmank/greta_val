@@ -73,7 +73,7 @@ total_emm <- as.data.frame( emmeans(total_density_mod, ~ year, type = "response"
    )
  )
 
-# ggsave(filename = here::here("output", "total_density.png"), total_density_plot, width = 10, height = 8,
+# ggsave(filename = here::here("output", "total_density.jpg"), total_density_plot, width = 10, height = 8,
 #        dpi = "retina")
 
 #### SPECIES INTERACTION MODEL ####
@@ -239,7 +239,7 @@ v_suscep_plot_df <- subset(interaction_plot, SCTLD_suscep == "very high")
 (demo_panel <- ggarrange(l_suscep_plot, m_suscep_plot, h_suscep_plot, v_suscep_plot,
           ncol = 2, nrow = 2, common.legend = T, legend = "bottom"))
 
-# ggsave(filename = here::here("output", "demo_effects_panel.png"), demo_panel, width = 22, height = 16,
+# ggsave(filename = here::here("output", "demo_effects_panel.jpg"), demo_panel, width = 22, height = 16,
 #        dpi = "retina")
 
 #### BETA DISPERSION ####
@@ -313,5 +313,5 @@ emmeans(disp_mod, pairwise ~ year)
     )
 )
 
-# ggsave(filename = here::here("output", "beta_dispersion.png"), dispersion_plot, width = 10, height = 8,
+# ggsave(filename = here::here("output", "beta_dispersion.jpg"), dispersion_plot, width = 10, height = 8,
 #        dpi = "retina")
